@@ -5,7 +5,6 @@ import java.util.List;
 import domain.Ingredient;
 import domain.Recipe;
 
-
 public interface IngredientDao {
 
 	List<Ingredient> getIngredients();
