@@ -1,0 +1,27 @@
+<div id="search-component">
+    <h2>Find a Recipe:</h2>
+    <p>Dedicated to those who love to cook but don't know who do not know what to make! Please enter ingredients you have on hand!</p>
+    <p>Enter Ingredients:</p>
+    <input #searchBox id="search-box" placeholder="Enter ingredient here" (keyup)="search(searchBox.value)" (keyup.enter)="addIngredient()" [(ngModel)]="searchBoxValue"/>
+    <button class="addIngredient" (click)="addIngredient()">+</button>
+    <div class="scroll">
+      <div *ngFor="let ingredient of ingredients | async"
+        (click)="addToSearchBox(ingredient)" class="search-result" >
+        {{ingredient.name}}
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <h4>Ingredients Entered:</h4>
+  <ul class="ingredients-typed">
+    <li *ngFor="let ingredient of ingredientsEntered">
+      <div  style="margin-left:10px;">{{ ingredient}}
+        <button class="delete" (click)="deleteIngredient(ingredient); $event.stopPropagation()">x</button>  
+      </div>
+    </li>
+  </ul>
+  <p>
+      <button class="submit" (click)="searchForRecipes()">Search For Recipe</button>
+  
+  </p>

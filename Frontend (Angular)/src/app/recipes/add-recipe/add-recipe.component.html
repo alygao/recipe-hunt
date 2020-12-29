@@ -1,0 +1,74 @@
+<title>Add New Recipe</title>
+<h2>New Recipe</h2>
+
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <label>
+      Recipe Name:
+      <input type="text" formControlName="name">
+    </label>
+    <br><br>
+    <label>
+        <div formArrayName="ingredients">
+            Ingredients: 
+            <div *ngFor="let ingredient of ingredients.controls; let i=index">
+                <!-- The repeated alias template -->
+                <label>
+                    Name:
+                    <input type="text" [formControlName]="i" (keyup.enter)="addIngredient()" required>
+                    <button class="deleteIngredient" (click)="deleteIngredient(i)">x</button>
+                </label>
+            </div> <br>
+            <button type="button" (click)="addIngredient()">add ingredient</button>
+            <br>
+          </div>
+      </label>
+      <br><br>
+    <label>
+      Link To Recipe:
+      <input style="width:500px;" type="url" formControlName="link">
+    </label>
+    <br><br>
+
+    <label>
+        Type:
+        <br>
+        <input type="radio" id="type1" name="type" value="vegetarian" formControlName="type">
+        <label for="type1"> vegetarian</label>
+        <input type="radio" id="type2" name="type" value="vegan" formControlName="type">
+        <label for="type2"> vegan</label><br>
+        <input type="radio" id="type3" name="type" value="low-carb" formControlName="type">
+        <label for="type3"> low-carb</label>
+        <input type="radio" id="type4" name="type" value="keto" formControlName="type">
+        <label for="type4"> keto</label><br>
+        <input type="radio" id="type5" name="type" value="gluten-free" formControlName="type">
+        <label for="type5"> gluten-free</label>
+        <input type="radio" id="type6" name="type" value="seafood" formControlName="type">
+        <label for="type6"> seafood</label><br>
+        <input type="radio" id="type7" name="type" value="low-fat" formControlName="type">
+        <label for="type7"> low-fat</label>
+        <input type="radio" id="type8" name="type" value="low-calorie" formControlName="type">
+        <label for="type8"> low-calorie</label><br>
+        <input type="radio" id="type9" name="type" value="none" formControlName="type">
+        <label for="type9"> none</label><br>  
+    </label>
+    <div>
+      <br>
+    <label>
+        Meal: 
+        <li *ngFor="let meal of meals let i=index">
+            <label>
+                <input type="checkbox" name="mealOption" [checked]="meals.indexOf(meal) < 0"
+                (change)="updateCheckedOptions(meal, $event)"
+                [value]="meal.name" required>
+                {{meal.name}}
+            </label>
+        </li>
+      </label>
+    </div>
+      <br>
+      <button type ="submit" [disabled]="!recipeForm.valid || recipeForm.pristine">Submit</button>
+  
+</form>
+
+
+

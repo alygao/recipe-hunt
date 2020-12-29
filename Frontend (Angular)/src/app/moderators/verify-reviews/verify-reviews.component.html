@@ -1,0 +1,19 @@
+<h2>Unverified Reviews</h2>
+<button (click)="backToPreviousPage()" style="background-color:rgb(181, 212, 202);">Back</button>
+
+    <li *ngFor="let review of unverifiedReviews" class="review" style="color:whitesmoke;">
+        <br>
+        <b style="color:rgb(165, 212, 197);">Recipe Name:</b> 
+        {{review.recipe.name | uppercase}}
+        <br>
+        <b style="color:rgb(165, 212, 197);">Date:</b> 
+        {{review.date | date}} <br>
+        <b style="color:rgb(165, 212, 197);">Name:</b> 
+        {{review.reviewerName}} <br>
+        <b style="color:rgb(165, 212, 197);">Review:</b> 
+        {{review.review}}
+        <br>
+        <button (click)="accept(review)">accept</button>
+        <button (click)="reject(review)">reject</button>
+        <button (click)="viewRecipe(review.recipe)">view recipe</button>
+    </li>

@@ -1,0 +1,33 @@
+h3 {
+    position: relative;
+    color:whitesmoke;
+}
+
+label {
+    margin-top: 50px;
+    position: relative;
+    color:whitesmoke
+}
+
+input {
+    width: 300px;
+    margin-top: -10px;
+    margin-top: 10px;  
+}
+
+button {
+    margin-top: 10px; 
+    margin-left: 10px;
+}
+
+textarea {
+    resize: both;
+    width: 300px;
+    height: 200px;
+    margin-top: -10px;
+    margin-top: 10px;
+}
+
+.formfield * {
+    vertical-align: text-top;
+  }

@@ -1,0 +1,14 @@
+<h1 class="title">Recipe Hunt</h1>
+<button (click)="authService.logout()" *ngIf="moderator!=null">Logout</button>
+<nav>
+  <a routerLink="/find-recipe" routerLinkActive="active">find a recipe</a>
+  <a routerLink="/recipes" routerLinkActive="active">recipes</a>
+  <a routerLink="/ingredients" routerLinkActive="active">ingredients</a>
+  <a routerLink="/moderator" routerLinkActive="active">moderator</a>
+</nav>
+<!-- <div [@routeAnimation]="getAnimationData(routerOutlet)">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
+</div> -->
+
+
+<router-outlet></router-outlet>

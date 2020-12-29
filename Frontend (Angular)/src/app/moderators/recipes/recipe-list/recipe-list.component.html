@@ -1,0 +1,32 @@
+<h2>All Recipes</h2>
+<button class="submit" (click)="backToPreviousPage()" style="background-color:rgb(181, 212, 202);">back</button>
+<br>
+<h3>Verified Recipes:</h3>  
+<ul class="recipes">
+<li *ngFor="let recipe of verifiedRecipes$ | async"
+    [class.selected]="recipe.id === selectedId">
+      <button class="submit" (click)="viewRecipe(recipe.id)">view</button>
+        <button class="submit" (click)="editRecipe(recipe.id)">edit</button>
+        <button class="submit" (click)="seeReviewsForRecipe(recipe.id)">reviews</button>
+        <button class="delete" (click)="deleteRecipe(recipe.id, recipe.name)">delete</button> 
+      {{ recipe.name }}
+  </li>
+</ul>
+<hr>
+<h3>Unverified Recipes:</h3>  
+<ul class="recipes">
+  <li *ngFor="let recipe of unverifiedRecipes$ | async"
+    [class.selected]="recipe.id === selectedId">
+      <button class="submit" (click)="viewRecipe(recipe.id)">view</button>
+        <button class="submit" (click)="editRecipe(recipe.id)">edit</button>
+        <button class="submit" (click)="acceptRecipe(recipe)">accept</button>
+        <button class="delete" (click)="deleteRecipe(recipe.id, recipe.name)">reject</button> 
+      {{ recipe.name }}
+  </li>
+</ul>
+
+
+<p>
+    <a routerLink="/recipes/add-recipe"><button >Add Recipe</button></a>
+
+</p>

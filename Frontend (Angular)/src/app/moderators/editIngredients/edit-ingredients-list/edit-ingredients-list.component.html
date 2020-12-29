@@ -1,0 +1,17 @@
+<h2>Moderator View - All Ingredients</h2>
+<p class="warning">Deleting any ingredient will automatically delete all recipes using that particular ingredient.</p>
+<button (click)="backToPreviousPage()" style="background-color:rgb(181, 212, 202);">Back</button>
+<ul class="ingredients">
+  <li *ngFor="let ingredient of ingredients$ | async"
+        [class.selected]="ingredient.id === selectedId">
+        <button class="submit" (click)="seeRecipes(ingredient.name)">see recipes</button>
+        <button class="submit" (click)="editIngredient(ingredient.id)">edit</button>
+        <button class="delete" (click)="deleteIngredient(ingredient.id, ingredient.name)">x</button>
+        {{ ingredient.name }}
+    </li>
+</ul>
+<p>
+    <!-- for moderator : -->
+    <!-- <a routerLink="/ingredients/add-ingredient"><button >Add Ingredient</button></a> -->
+
+</p>

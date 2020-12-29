@@ -1,0 +1,31 @@
+.loginFailed {
+  display: inline;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545
+ }
+
+:host {
+    display: block;
+  }
+  
+  .open-close-container {
+    border: 1px solid #dddddd;
+    margin-top: 1em;
+    padding: 20px 20px 0px 20px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .progress-container {
+    border: 1px solid #dddddd;
+    margin-top: 1em;
+    padding: 20px 20px 0px 20px;
+    color: #fffb0d;
+    font-weight: bold;
+    font-size: 20px;
+    /* width: 10px; */
+    width: 100px;
+  }

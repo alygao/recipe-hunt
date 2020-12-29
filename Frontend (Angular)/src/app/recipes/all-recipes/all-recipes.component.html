@@ -1,0 +1,10 @@
+<h2>All Recipes</h2>
+<a routerLink="/recipes/add-recipe"><button >Add Recipe</button></a>
+<br><br>
+<ul class="recipes">
+  <li *ngFor="let recipe of recipes$ | async" (click)="viewRecipe(recipe.id)" >
+      <div style="margin-left:10px;">{{ recipe.name }}</div>
+  </li>
+</ul>
+<p>
+</p>

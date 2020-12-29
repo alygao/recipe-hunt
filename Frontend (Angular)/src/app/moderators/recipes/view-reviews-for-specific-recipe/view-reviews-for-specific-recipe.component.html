@@ -1,0 +1,43 @@
+<h2>Viewing Reviews for Recipe {{recipe.id}}: {{recipe.name | uppercase}}</h2>
+<button class="submit" (click)="backToPreviousPage()" style="background-color:rgb(181, 212, 202);">back</button>
+<br>
+<label><b><div style="margin-top : 50px;">Verified Reviews:</div></b>
+    <li *ngFor="let review of verifiedReviews" class="review">
+        <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Review ID:</b> 
+            {{review.id}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px">Date:</b> 
+            {{review.date | date}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px">Name:</b> 
+            {{review.reviewerName}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Reviewer's Email:</b> 
+            {{review.reviewerEmail}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Review:</b> 
+            {{review.review}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Moderator Approved:</b> 
+            {{review.moderator.name}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Moderator's Username:</b> 
+            {{review.moderator.username}} <br><br>
+            <button class="delete" (click)="deleteReview(review)">delete review</button> 
+        <br> <br>
+  </li>
+</label>
+
+<label><b><div style="margin-top : 50px;">Unverified Reviews:</div></b>
+    <li *ngFor="let review of unverifiedReviews" class="review">
+        <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Review ID:</b> 
+            {{review.id}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px">Date:</b> 
+            {{review.date | date}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px">Name:</b> 
+            {{review.reviewerName}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Reviewer's Email:</b> 
+            {{review.reviewerEmail}} <br>
+            <b style="color:rgb(165, 212, 197); margin-left:10px;">Review:</b> 
+            {{review.review}}  <br> <br>
+        <button class="delete" (click)="acceptUnverifiedReview(review)">accept review</button> 
+        <button class="delete" (click)="deleteReview(review)">reject review</button> 
+        <br> <br>
+  </li>
+</label>

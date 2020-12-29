@@ -1,0 +1,20 @@
+<h2>List of Moderators</h2>
+<button (click)="backToPreviousPage()">Back</button>
+<button (click)="goToModeratorApplications()" style="margin-left:10px;">View Moderator Applications</button>
+
+<li *ngFor="let moderator of moderators" class="moderator" style="color:whitesmoke;">
+    <br>
+    <b style="color:rgb(165, 212, 197);">Moderator Name:</b> 
+    {{moderator.name | uppercase}}
+    <br>
+    <b style="color:rgb(165, 212, 197);">Username:</b> 
+    {{moderator.username}} <br>
+    <b style="color:rgb(165, 212, 197);">Name:</b> 
+    {{moderator.level}} <br>
+    <b style="color:rgb(165, 212, 197);">Status:</b> 
+    {{moderator.active}}
+    <br>
+    <button (click)="promote(moderator)">Promote</button>
+    <button style="margin-left:10px; margin-top: 10px;" (click)="updateStatus(moderator)">Change Status</button>
+</li>
+

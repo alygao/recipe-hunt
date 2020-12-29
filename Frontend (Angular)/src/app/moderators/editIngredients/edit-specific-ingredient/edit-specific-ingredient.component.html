@@ -1,0 +1,10 @@
+<div *ngIf="ingredient$ | async as ingredient">
+    <h2>Editing Ingredient: {{ingredient.name | lowercase}}</h2>
+    <div>
+        <label>Edit Name:
+          <input [(ngModel)]="editName" placeholder="enter ingredient name here"/>
+        </label>
+        <button (click)="save(ingredient)">Save</button>
+        <button (click)="cancel(ingredient)">Cancel</button>
+      </div>
+</div>

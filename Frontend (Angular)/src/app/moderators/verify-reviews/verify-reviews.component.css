@@ -1,0 +1,15 @@
+li {
+    margin-left : 50px;
+    list-style-type: none;
+    margin-top : 20px;
+}
+
+li.review {
+    list-style-type: symbols();
+    font-size: smaller;
+}
+
+button {
+    margin-left: 10px;
+    margin-top: 10px;
+}

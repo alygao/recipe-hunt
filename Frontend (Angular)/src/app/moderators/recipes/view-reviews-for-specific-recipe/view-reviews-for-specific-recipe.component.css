@@ -1,0 +1,42 @@
+h2 {
+    font-size: large;
+    color : white;  
+}
+
+div {
+    color: white;
+    margin: .5em;
+}
+
+label {
+    font-size: large;
+    color: white;
+}
+
+a{
+    color:rgb(165, 212, 197);
+}
+
+li {
+    margin-left : 50px;
+    list-style-type: none;
+}
+
+li.review {
+    list-style-type: symbols();
+    font-size: smaller;
+    background-color: rgb(89, 102, 102);
+    margin-top: 20px;
+}
+
+div.review {
+    list-style-type: symbols();
+    font-size: smaller;
+    
+    background-color: rgb(89, 102, 102);
+}
+
+button {
+    margin-left: 10px;
+}
+

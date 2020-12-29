@@ -1,0 +1,68 @@
+.ingredients {
+    margin: 0 0 2em 0;
+    list-style-type: circle;
+    padding: 0;
+    width: 30em;
+  }
+  .ingredients li {
+    position: relative;
+    cursor: default;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+    line-height: 1em;
+  }
+  
+  .ingredients a {
+    margin-left: 1em;
+    color: #888;
+    text-decoration: none;
+    position: relative;
+    display: block;
+  }
+  
+  .ingredients a:hover {
+    color:#607D8B;
+  }
+  
+
+  
+  button {
+    margin-left:10px;
+    background-color: #d8d3cd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+    font-size: medium;
+  }
+  
+  button:hover {
+    background-color: #c9c3bb;
+  }
+  
+  button.delete {
+    /* position: relative; */
+    left: 194px;
+    top: -32px;
+    border-radius: 50%;
+    background-color: darkred !important;
+    color: white;
+  }
+  
+  .ingredients li.selected {
+    background-color: #CFD8DC;
+    color: white;
+  }
+  .ingredients li.selected:hover {
+    background-color: #BBD8DC;
+  }
+
+  p.warning {
+    color: whitesmoke;
+    background-color: darkred;
+  }

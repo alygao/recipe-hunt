@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+form {
+    color : white;
+}
+
+label { 
+    margin-top: 50px; 
+}
+
+li {
+    list-style-type: none;
+}
+
+h2, p {
+  color: white;
+}
+
+.search-result{
+    font-size: large;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    width:255px;
+    height: 20px;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+  }
+  #search-box{
+    font-size: large;
+    width:250px;
+    height: 20px;
+    padding: 5px;
+  }
+
+  .ingredients {
+    margin: 0 0 2em 0;
+    list-style-type: circle;
+    padding: 0;
+    width: 50em;
+  }
+  .ingredients li {
+    margin-left: 0.5em;
+    position: relative;
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+    line-height: 1em;
+  }
+  
+
+  button.addIngredient {
+    margin-left:10px;
+    font-size: x-large;
+    /* top: 10px;
+    right:0; */
+    /*
+    margin-top: 2px;
+    margin-right: .8em; */
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: #8bc4c4 !important;
+    color:black;
+  }
+
+  button.deleteIngredient {
+    margin-left:10px;
+    font-size: medium;
+    position: relative;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #f7f2e7 !important;
+    color:black;
+  }
+
+  button.addIngredient:hover {
+    /* float:right;
+    margin-top: 2px;
+    margin-right: .8em; */
+    background-color: #56817a !important;
+    color:black;
+  }
+  
+  .ingredients-typed li {
+    position: relative;
+    cursor: pointer;
+    background-color: #EEE;
+    /* margin: .5em; */
+    vertical-align: middle;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+
+  button.delete {
+    float:right;
+    /* margin-top: 2px; */
+    vertical-align: middle;
+    margin-right: .8em;
+    background-color: #d8d3cd !important;
+    color:black;
+  }

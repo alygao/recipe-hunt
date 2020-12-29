@@ -1,0 +1,25 @@
+h2 {
+    font-size: large;
+    color : white;  
+}
+
+div {
+    color: white;
+}
+
+label {
+    font-size: medium;
+}
+
+a{
+    color:lightgoldenrodyellow;
+}
+
+input {
+    width:300px;
+}
+
+button {
+    margin-left: 10px;
+
+}

@@ -1,0 +1,28 @@
+<h3>Writing review for: {{recipeName}}</h3>
+
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    <label>
+      Reviewer Name:
+      <input type="text" formControlName="reviewerName" required>
+    </label>
+    <br>
+    <label>
+      Email:
+      <input type="text" formControlName="reviewerEmail" required>
+    </label>
+    <br>
+    <p class="formfield">
+        <label for="textarea">
+            Review:
+            <!-- <input type="textarea" formControlName="review" class="review" maxlength=750 required> -->
+            <textarea formControlName="review" class="review" maxlength=750 required> </textarea>
+        </label>
+    </p>
+    <br>
+    <button type ="button" (click)="goBackToRecipeDetails()">Back</button>
+    <button type ="submit" [disabled]="!reviewForm.valid || reviewForm.pristine">Submit Review</button>
+  
+</form>
+
+
+

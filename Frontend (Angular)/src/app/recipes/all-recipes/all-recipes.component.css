@@ -1,0 +1,53 @@
+/* HeroListComponent's private CSS styles */
+.recipes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width:auto
+    /* width: 30em; */
+  }
+  .recipes li {
+    position: relative;
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border: 4px solid rgb(181, 212, 202);
+    
+  }
+  
+  .recipes li:hover {
+    background-color: #DDD;
+    left: .1em;
+  }
+  
+  button {
+    background-color: rgb(181, 212, 202);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+  }
+  
+  button:hover {
+    background-color:rgb(144, 177, 166);
+  }
+  
+  button.delete {
+    position: relative;
+    left: 194px;
+    top: -32px;
+    background-color:rgb(144, 192, 177);
+    color: white;
+  }
+  
+  .recipes li.selected {
+    background-color: #CFD8DC;
+    color: white;
+  }
+  .recipes li.selected:hover {
+    background-color: #BBD8DC;
+  }

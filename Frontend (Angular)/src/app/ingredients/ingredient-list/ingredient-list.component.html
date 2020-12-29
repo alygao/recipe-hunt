@@ -1,0 +1,14 @@
+<h2>All Ingredients</h2>
+<p>Don't know what to make? Click on any ingredient to view recipes with chosen ingredient!</p>
+<ul class="ingredients">
+  <li *ngFor="let ingredient of ingredients$ | async"
+      [class.selected]="ingredient.id === selectedId">
+      <button class="submit" (click)="seeRecipes(ingredient.name)">See Recipes</button>
+       {{ ingredient.name }}
+    </li>
+</ul>
+<p>
+    <!-- for moderator : -->
+    <!-- <a routerLink="/ingredients/add-ingredient"><button >Add Ingredient</button></a> -->
+
+</p>

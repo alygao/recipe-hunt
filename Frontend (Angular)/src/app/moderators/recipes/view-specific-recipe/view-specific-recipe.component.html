@@ -1,0 +1,48 @@
+<div *ngIf="recipe$ | async as recipe">
+    <h2>Viewing Recipe: {{recipe.name | titlecase}}</h2>
+    <div>
+        <label>Ingredients:
+            <li *ngFor="let ingredient of recipe.ingredients" class="ingredientName">
+                {{ingredient.name}} 
+            </li>
+        </label>
+      </div>
+    <div>
+        <label>Link:
+            <a href={{recipe.link}}>{{recipe.link}}</a>
+        </label>
+    </div>
+    <div>
+        <label>Type:
+            <input [(ngModel)]="recipe.type" disabled/>
+        </label>
+    </div>
+    <div>
+        <label>Meal Categories:
+            <li *ngFor="let meal of recipe.meals" class="meal">
+                {{meal.name}} 
+            </li>
+        </label>
+    </div>
+    <label>Reviews:
+        <li *ngFor="let review of recipe.verifiedReviews">
+            <div class="review">
+                <br>
+                <b style="color:rgb(165, 212, 197); margin-left:10px">Date:</b> 
+                {{review.date | date}} <br>
+                <b style="color:rgb(165, 212, 197); margin-left:10px">Name:</b> 
+                {{review.reviewerName}} <br>
+                <b style="color:rgb(165, 212, 197); margin-left:10px;">Review:</b> 
+                {{review.review}} <br> 
+                <br>
+            </div>
+        </li>
+    </label>
+    <div>
+
+    </div>
+    <p></p>
+    <p>
+        <button (click)="backToPreviousPage(recipe)">Back</button>
+    </p>
+ </div>

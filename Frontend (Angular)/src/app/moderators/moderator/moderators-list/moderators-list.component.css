@@ -1,0 +1,18 @@
+li {
+    margin-left : 50px;
+    list-style-type: none;
+    margin-top : 20px;
+}
+
+li.moderator {
+    list-style-type: symbols();
+    font-size: smaller;
+}
+
+button{
+    background-color:rgb(181, 212, 202);
+}
+
+button:hover {
+    background-color:rgb(161, 189, 180);
+}

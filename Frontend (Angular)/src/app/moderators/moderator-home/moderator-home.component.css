@@ -1,0 +1,27 @@
+button {
+    position: relative;
+    vertical-align: top;
+    margin-left:10px;
+    margin-top:40px;
+    font-size: larger;
+    /* top: 10px;
+    right:0; */
+    /*
+    margin-top: 2px;
+    margin-right: .8em; */
+    width: 175px;
+    height: 150px;
+    padding: 5px;
+    border-radius: 20%;
+    background-color: honeydew !important;
+    border: 5px solid whitesmoke;
+    color:black;
+  }
+
+  button:hover {
+    /* float:right;
+    margin-top: 2px;
+    margin-right: .8em; */
+    background-color: rgb(204, 236, 204) !important;
+    color:black;
+  }

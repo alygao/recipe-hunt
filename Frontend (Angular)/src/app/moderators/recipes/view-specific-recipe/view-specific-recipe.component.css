@@ -1,0 +1,44 @@
+h2 {
+    font-size: large;
+    color : white;  
+}
+
+div {
+    color: white;
+    margin: .5em;
+}
+
+label {
+    font-size: large;
+}
+
+a{
+    color:rgb(165, 212, 197);
+}
+
+li {
+    margin-left : 50px;
+    list-style-type: none;
+}
+
+li.ingredientName, li.meal {
+    font-size:medium;
+    list-style-type: circle;
+}
+
+li.review {
+    font-size: smaller;
+    background-color: darkgrey;
+}
+
+div.review {
+    margin-block: inherit;
+    list-style-type: symbols();
+    font-size: smaller;
+    
+    background-color: rgb(89, 102, 102);
+}
+
+button {
+    margin-left: 10px;
+}

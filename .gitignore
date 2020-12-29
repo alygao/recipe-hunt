@@ -1,0 +1,50 @@
+backend.gitignore
+frontend.gitignore
+/Backend (REST)/target/
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/Frontend (Angular)/dist
+/Frontend (Angular)/tmp
+/Frontend (Angular)/out-tsc
+# Only exists if Bazel was run
+/Frontend (Angular)/bazel-out
+
+# dependencies
+/Frontend (Angular)/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/Frontend (Angular)/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/Frontend (Angular)/.sass-cache
+/Frontend (Angular)/connect.lock
+/Frontend (Angular)/coverage
+/Frontend (Angular)/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/Frontend (Angular)/typings
+
+# System Files
+.DS_Store
+Thumbs.db
