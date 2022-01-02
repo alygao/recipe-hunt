@@ -1,0 +1,1 @@
+SET "JAVA_OPTS=%JAVA_OPTS% -Drh.db.hostname=%RECIPE_HUNT_DB_HOST% -Drh.db.port=%RECIPE_HUNT_DB_PORT% -Drh.db.name=%RECIPE_HUNT_DB_NAME% -Drh.db.user=%RECIPE_HUNT_DB_USER% -Drh.db.password=%RECIPE_HUNT_DB_PASSWORD%"

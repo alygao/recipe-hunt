@@ -24,10 +24,10 @@
     <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
-    <Resource name="jdbc/alyssaDB" auth="Container" type="javax.sql.DataSource"
-        maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-        username="root" password="" driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost:3306/recipe-hunt"/>
+    <Resource name="jdbc/RecipeHuntDB" auth="Container" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              username="${rh.db.user}" password="${rh.db.password}" driverClassName="com.mysql.jdbc.Driver"
+		      url="jdbc:mysql://${rh.db.hostname}:${rh.db.port}/${rh.db.name}"/>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
