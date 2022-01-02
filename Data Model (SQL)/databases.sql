@@ -70,3 +70,14 @@ CREATE TABLE SUBSCRIBERS (
 	EMAIL VARCHAR(50) NOT NULL, 
     	NAME VARCHAR(50) NOT NULL
 );
+
+INSERT INTO MEALS (NAME) VALUES 
+	('Breakfast'),
+	('Lunch'),
+	('Dinner'),
+	('Dessert'),
+	('Beverage');
+	
+INSERT INTO MODERATORS (USERNAME, PASSWORD, NAME, LEVEL, ACTIVE) VALUES 
+	('user1', 'f486a750b57aaee0f5af690ca0fd80da7932672703ea43bd7e3eaf789a3452b5244fbe77abb239f3', 'john', 1, TRUE),
+	('user2', 'f486a750b57aaee0f5af690ca0fd80da7932672703ea43bd7e3eaf789a3452b5244fbe77abb239f3', 'mary', 2, TRUE);
