@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { tap, delay, catchError } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
 import { Moderator, ModeratorApplication } from './moderator';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,10 @@ export class ModeratorService {
 
   // currentModerator : Moderator = null;
 
-  private moderatorURL = 'http://localhost:8080/recipe-hunt/admin/moderators';  // URL to REST api
-  private moderatorApplicationURL = 'http://localhost:8080/recipe-hunt/moderator-applications';  // URL to REST api
+  // private moderatorURL = 'http://agserver:18080/recipe-hunt/admin/moderators';  // URL to REST api
+  // private moderatorApplicationURL = 'http://agserver:18080/recipe-hunt/moderator-applications';  // URL to REST api
+  private moderatorURL = `${environment.apiURL}/recipe-hunt/admin/moderators`;  // URL to REST api
+  private moderatorApplicationURL = `${environment.apiURL}//recipe-hunt/moderator-applications`;  // URL to REST api
   constructor(private http: HttpClient, private authService : AuthService) { 
 
     // // TODO: modify to accept logged in moderator 

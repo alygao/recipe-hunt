@@ -4,20 +4,20 @@ import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Ingredient } from './ingredient';
 import { AuthService } from '../auth.service';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IngredientService {
 
-  private ingredientsURL = 'http://localhost:8080/recipe-hunt/ingredients';  // URL to REST api
+  private ingredientsURL = `${environment.apiURL}/recipe-hunt/ingredients`;  // URL to REST api
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   convertToIngredients(ingredientNames : string[]) : Observable<Ingredient[]>  {
 
     console.log('IN INGREDIENT SERVICE: ', ingredientNames);
-    const url = 'http://localhost:8080/recipe-hunt/convertToIngredients';
+    const url = `${environment.apiURL}/recipe-hunt/convertToIngredients`;
     // return this.http.get<Ingredient[]>(this.ingredientsURL).pipe(
     //   catchError(this.handleError<Ingredient[]>('getIngredients'))
     // );

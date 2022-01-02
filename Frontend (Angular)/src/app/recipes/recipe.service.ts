@@ -7,16 +7,19 @@ import { Meal } from './meal';
 import { Review } from './review';
 import {SubmittedReview}  from './review'
 import { AuthService } from '../auth.service';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  private reviewsURL = 'http://localhost:8080/recipe-hunt/reviews';
-  private mealsURL = 'http://localhost:8080/recipe-hunt/meals';
-  private recipesURL = 'http://localhost:8080/recipe-hunt/recipes';  // URL to REST api
+  // private reviewsURL = 'http://agserver:18080/recipe-hunt/reviews';
+  // private mealsURL = 'http://agserver:18080/recipe-hunt/meals';
+  // private recipesURL = 'http://agserver:18080/recipe-hunt/recipes';  // URL to REST api
+  private reviewsURL = `${environment.apiURL}/recipe-hunt/reviews`;
+  private mealsURL = `${environment.apiURL}/recipe-hunt/meals`;
+  private recipesURL = `${environment.apiURL}/recipe-hunt/recipes`;  // URL to REST api
   constructor(private http: HttpClient, private authService: AuthService) { }
 
 
@@ -58,7 +61,7 @@ export class RecipeService {
     // console.log('RECIPE BEING SAVED ', JSON.stringify(submittedReview));
     const url = `${this.reviewsURL}/${review.id}`;
     return this.http
-      .put(url, JSON.stringify(submittedReview), {headers: this.headers})
+      .put(url, JSON.stringify(submittedReview), this.authService.generateHeadersForApp())
       .pipe(
         catchError(this.handleError<any>('saveReview'))
       );

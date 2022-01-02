@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Recipe } from '../recipes/recipe';
 import {Ingredient} from '../ingredients/ingredient'
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ import {Ingredient} from '../ingredients/ingredient'
 export class FindRecipeService {
   recipesFound$ : Observable<Recipe[]>;
 
-  private findrecipesURL = 'http://localhost:8080/recipe-hunt/find-recipes';  // URL to REST api
+  private findrecipesURL = `${environment.apiURL}/recipe-hunt/find-recipes`;  // URL to REST api
   constructor(private http: HttpClient) { }
   
   search(term:string) : Observable<Ingredient[]> {
-    const url = `http://localhost:8080/recipe-hunt/searchIngredients?term=${term}`;
+    const url = `${environment.apiURL}/recipe-hunt/searchIngredients?term=${term}`;
     return this.http
       .get(url)
       .pipe(
@@ -25,7 +26,7 @@ export class FindRecipeService {
 
 
   findRecipes(ingredientNames : string[]) : void{
-    const url = `http://localhost:8080/recipe-hunt/findRecipes`;
+    const url = `${environment.apiURL}/recipe-hunt/findRecipes`;
     // console.log(JSON.stringify(ingredientNames));
     // console.log("in findRecipes");
     if (ingredientNames.length == 0) {

@@ -3,14 +3,14 @@ import { Moderator } from './moderators/moderator'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {catchError, tap} from 'rxjs/operators'
-
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private AUTH_URL = 'http://localhost:8080/recipe-hunt/auth/authenticate';
+  private AUTH_URL = `${environment.apiURL}/recipe-hunt/auth/authenticate`;
   private _currentModerator: Moderator;
 
   public isLoggedIn = false;
@@ -32,10 +32,16 @@ export class AuthService {
   }
 
   public generateHeadersForApp () : { headers?: HttpHeaders | { [header: string]: string | string[]; }}  {
-    return {headers: new HttpHeaders ({
-      'Content-Type': 'application/json',
-      'Authorization' : 'Basic ' + btoa(this.currentModerator.username + ":" + this.currentModerator.password)
-    })};
+    if (this.currentModerator) {
+      return {headers: new HttpHeaders ({
+        'Content-Type': 'application/json',
+        'Authorization' : 'Basic ' + btoa(this.currentModerator.username + ":" + this.currentModerator.password)
+      })};
+    } else {
+      return {headers: new HttpHeaders ({
+        'Content-Type': 'application/json'
+      })};
+    }
   }
 
   authenticate(username: string, password: string) : Observable<Moderator> {

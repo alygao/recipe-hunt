@@ -62,7 +62,7 @@ export class VerifyReviewsComponent implements OnInit {
     
   }
   viewRecipe (recipe : Recipe) {
-    this.router.navigate(['/recipes', recipe.id]);
+    this.router.navigate(['/recipes/verified/', recipe.id]);
   }
 
   backToPreviousPage() {

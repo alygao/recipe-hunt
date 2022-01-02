@@ -34,7 +34,7 @@ export class AddReviewComponent implements OnInit {
   ngOnInit(): void {
     this.recipe$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.recipeService.getRecipe(+params.get('id')))
+        this.recipeService.getVerifiedRecipe(+params.get('id')))
     );
     this.recipe$.subscribe(r => {
       this.recipe = r;
@@ -69,7 +69,7 @@ export class AddReviewComponent implements OnInit {
         date: date,
       };
       this.recipeService.addReview(reviewToBeAdded)
-      .subscribe ( r => this.router.navigate(['/recipes/', this.recipe.id ]),
+      .subscribe ( r => this.router.navigate(['/recipes/verified/', this.recipe.id ]),
                    error => alert ( "Communication Error: " + error ) ) ;
     });
 
