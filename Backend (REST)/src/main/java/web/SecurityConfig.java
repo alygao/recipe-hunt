@@ -20,13 +20,13 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	public static final String DEF_USERS_BY_USERNAME_QUERY =
-			"select username, password, active as enabled " +
-			"from moderators " +
-			"where username = ?";
+			"SELECT USERNAME, PASSWORD, ACTIVE AS ENABLED " + 
+			"FROM MODERATORS " +
+			"WHERE USERNAME = ?";
 	public static final String DEF_AUTHORITIES_BY_USERNAME_QUERY =
-			"select username, case level when 1 then 'ROLE_MOD' else 'ROLE_ADM' end as authority " +
-			"from moderators " +
-			"where username = ?";
+			"SELECT USERNAME, CASE LEVEL WHEN 1 THEN 'ROLE_MOD' ELSE 'ROLE_ADM' END AS AUTHORITY " +
+			"FROM MODERATORS " +
+			"WHERE USERNAME = ?";
 
 	@Autowired
 	private DataSource dataSource;
