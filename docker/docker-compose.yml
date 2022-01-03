@@ -1,0 +1,36 @@
+version: "3.7"
+networks:
+  recipe-hunt-network:
+    driver: bridge
+    labels:
+      project: "recipe_hunt"
+      module: "web_app"
+    attachable: true
+services:
+  recipe-hunt-nginx:
+    image: "recipe-hunt-nginx"
+    ports: 
+      - "19090:80"
+    deploy:
+      replicas: 1
+  recipe-hunt-tomcat:
+    image: "recipe-hunt-tomcat"
+    networks:
+      - recipe-hunt-network
+    ports:
+      - "18080:8080"
+    environment:
+      RECIPE_HUNT_DB_USER: rhuser
+      RECIPE_HUNT_DB_PASSWORD: rhPassw0rd
+    deploy:
+      replicas: 1
+  recipe-hunt-db:
+    image: "recipe-hunt-db"
+    networks:
+      - recipe-hunt-network
+    environment:
+      MYSQL_USER: rhuser
+      MYSQL_PASSWORD: rhPassw0rd
+    deploy:
+      replicas: 1
+      

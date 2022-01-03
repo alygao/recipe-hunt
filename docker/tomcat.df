@@ -8,7 +8,7 @@ RUN mkdir /home/recipeHunt && \
 WORKDIR /home/recipeHunt/recipe-hunt/'Backend (REST)'
 RUN mvn package
 
-#FROM izone/tomcat
+
 FROM tomcat:9.0.56-jdk8-openjdk-bullseye as runtime
 ARG src1="/home/recipeHunt/recipe-hunt/Backend (REST)/target/recipe-hunt.war"
 ARG target1=/usr/local/tomcat/webapps/
@@ -26,19 +26,3 @@ ENV RECIPE_HUNT_DB_HOST=recipe-hunt-db \
     RECIPE_HUNT_DB_PASSWORD=rhPassw0rd \
     RECIPE_HUNT_DB_JNDI_NAME=jdbc/RecipeHuntDB
 # EXPOSE 8080
-
-#Install git
-# RUN apt-get update 
-# RUN apt-get install -y git
-# RUN apt update 
-# RUN apt install -y maven
-# RUN mkdir /home/recipeHunt && \     
-#            cd /home/recipeHunt && \        
-#            git clone https://github.com/alyssagao1120/recipe-hunt.git
-# #Set working directory
-# WORKDIR /home/recipeHunt/'Backend (REST)'
-# RUN mvn package
-
-
-# RUN apt-get update && apt-get install -y 
-# RUN apt install -y tomcat9 tomcat9-admin
