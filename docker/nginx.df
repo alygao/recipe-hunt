@@ -2,8 +2,10 @@
 
 # Use official node image as the base image
 FROM node:latest as build
-ENV API_URL_HOST=recipe-hunt-tomcat \
-    API_URL_PORT=8080
+ARG apiUrlHost
+ARG apiUrlPort
+ENV API_URL_HOST=${apiUrlHost} \
+    API_URL_PORT=${apiUrlPort}
 # Set the working directory
 WORKDIR /usr/local/app
 RUN git clone https://github.com/alyssagao1120/recipe-hunt.git
