@@ -1,0 +1,90 @@
+# Stage 1: Compile and Build angular codebase
+
+# Use official node image as the base image
+FROM node:latest as build
+ENV API_URL_HOST=recipe-hunt-tomcat \
+    API_URL_PORT=8080
+# Set the working directory
+WORKDIR /usr/local/app
+RUN git clone https://github.com/alyssagao1120/recipe-hunt.git
+WORKDIR /usr/local/app/recipe-hunt/'Frontend (Angular)'
+ENV NODE_OPTIONS=--openssl-legacy-provider
+# Add the source code to app
+#COPY ./ /usr/local/app/
+
+RUN chmod +x /usr/local/app/recipe-hunt/environments/frontend/set_env.sh
+RUN /usr/local/app/recipe-hunt/environments/frontend/set_env.sh
+
+# Install all the dependencies
+RUN npm install
+
+# Generate the build of the application
+RUN npm run build --prod
+# ARG abc="good"
+# ARG src0="/usr/local/app/recipe-hunt/Frontend (Angular)/dist/Recipe-Hunt/abc.txt"
+# RUN echo ${abc} > ${src0}
+
+RUN cat /usr/local/app/recipe-hunt/environments/frontend/set_env.sh
+RUN cat /usr/local/app/recipe-hunt/'Frontend (Angular)'/src/environments/environment.ts
+
+
+# Stage 2: Serve app with nginx server
+
+# Use official nginx image as the base image
+FROM nginx:latest
+ARG src1="/usr/local/app/recipe-hunt/Frontend (Angular)/dist/Recipe-Hunt/"
+ARG src2="/usr/local/app/recipe-hunt/environments/nginx/nginx.conf"
+# Copy the build output to replace the default nginx contents.
+COPY --from=build ${src1} /usr/share/nginx/html
+COPY --from=build ${src2} /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
+
+
+
+
+# FROM alyssagao/ubuntu-git-maven-angular as build1
+
+# FROM build1 as build2
+# RUN mkdir /home/recipeHunt && \
+#            cd /home/recipeHunt && \
+#            git clone https://github.com/alyssagao1120/recipe-hunt.git
+# #Set working directory
+# WORKDIR /home/recipeHunt/recipe-hunt/'Frontend (Angular)'
+# RUN ng build --prod
+
+# #FROM izone/tomcat
+# FROM nginx as runtime
+# ARG src1="/home/recipeHunt/recipe-hunt/Frontend (Angular)/dist/Recipe-Hunt/*"
+# ARG target1=/usr/share/nginx/html/
+# COPY --from=build2 ${src1} ${target1}
+
+
+
+
+
+
+
+# ENV RECIPE_HUNT_DB_HOST=recipe-hunt-db \
+#     RECIPE_HUNT_DB_PORT=3306 \
+#     RECIPE_HUNT_DB_NAME=recipe_hunt \
+#     RECIPE_HUNT_DB_USER=rhuser \
+#     RECIPE_HUNT_DB_PASSWORD=rhPassw0rd \
+#     RECIPE_HUNT_DB_JNDI_NAME=jdbc/RecipeHuntDB
+
+#Install git
+# RUN apt-get update 
+# RUN apt-get install -y git
+# RUN apt update 
+# RUN apt install -y maven
+# RUN mkdir /home/recipeHunt && \     
+#            cd /home/recipeHunt && \        
+#            git clone https://github.com/alyssagao1120/recipe-hunt.git
+# #Set working directory
+# WORKDIR /home/recipeHunt/'Backend (REST)'
+# RUN mvn package
+
+
+# RUN apt-get update && apt-get install -y 
+# RUN apt install -y tomcat9 tomcat9-admin

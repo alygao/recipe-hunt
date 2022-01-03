@@ -1,0 +1,36 @@
+FROM alyssagao/ubuntu-git-maven as build1
+
+FROM build1 as build2
+RUN mkdir /home/recipeHunt && \
+           cd /home/recipeHunt && \
+           git clone https://github.com/alyssagao1120/recipe-hunt.git
+#Set working directory
+WORKDIR /home/recipeHunt/recipe-hunt/'Backend (REST)'
+RUN mvn package
+
+#FROM izone/tomcat
+FROM mysql:latest as runtime
+ARG src1="/home/recipeHunt/recipe-hunt/Data Model (SQL)/databases.sql"
+ARG target1=/docker-entrypoint-initdb.d
+COPY --from=build2 ${src1} ${target1}
+ENV MYSQL_ROOT_PASSWORD="" \
+    MYSQL_DATABASE="recipe_hunt" \
+    MYSQL_USER="rhuser" \
+    MYSQL_PASSWORD="rhPassw0rd" \
+    MYSQL_ALLOW_EMPTY_PASSWORD="yes"
+
+#Install git
+# RUN apt-get update 
+# RUN apt-get install -y git
+# RUN apt update 
+# RUN apt install -y maven
+# RUN mkdir /home/recipeHunt && \     
+#            cd /home/recipeHunt && \        
+#            git clone https://github.com/alyssagao1120/recipe-hunt.git
+# #Set working directory
+# WORKDIR /home/recipeHunt/'Backend (REST)'
+# RUN mvn package
+
+
+# RUN apt-get update && apt-get install -y 
+# RUN apt install -y tomcat9 tomcat9-admin
