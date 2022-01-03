@@ -13,15 +13,11 @@ sudo docker network create --driver bridge --label project=recipe_hunt --label m
 #sudo docker run --rm --name recipe-hunt-db --network recipe-hunt-network -e MYSQL_USER=rhuser -e MYSQL_PASSWORD=rhPassw0rd -it recipe-hunt-db
 sudo docker run --rm --name recipe-hunt-db --network recipe-hunt-network -e MYSQL_USER=rhuser -e MYSQL_PASSWORD=rhPassw0rd -d recipe-hunt-db
 
-sudo docker logs -f recipe-hunt-db
-
 sleep 20
 
 #sudo docker run --rm --name recipe-hunt-tomcat --network recipe-hunt-network -p 18080:8080 -it recipe-hunt-tomcat
 #sudo docker run --rm --name recipe-hunt-tomcat --network recipe-hunt-network -p 18080:8080 -e RECIPE_HUNT_DB_USER=rhuser -e RECIPE_HUNT_DB_PASSWORD=rhPassw0rd -it recipe-hunt-tomcat
 sudo docker run --rm --name recipe-hunt-tomcat --network recipe-hunt-network -p 18080:8080 -e RECIPE_HUNT_DB_USER=rhuser -e RECIPE_HUNT_DB_PASSWORD=rhPassw0rd -d recipe-hunt-tomcat
-
-sudo docker logs -f recipe-hunt-tomcat
 
 sleep 10
 
@@ -33,7 +29,11 @@ sudo docker run --rm --name recipe-hunt-nginx -p 19090:80 -it recipe-hunt-nginx
 # MYSQL Console
 sudo docker run -it --network recipe-hunt-network --rm mysql mysql -hrecipe-hunt-db -urhuser -p
 
+# Logs
+sudo docker logs -f recipe-hunt-db
+sudo docker logs -f recipe-hunt-tomcat
 
 # Remove containers
 sudo docker rm -f recipe-hunt-db
 sudo docker rm -f recipe-hunt-tomcat
+sudo docker rm -f recipe-hunt-nginx
