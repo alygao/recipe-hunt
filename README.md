@@ -5,9 +5,9 @@
 </h1>
 
 
-🍰 A web application designed to help discover new recipe ideas based on already owned ingredients and share reviews. It also incorporates a moderator/admin system to manage recipes, ingredients, and reviews.
+A web application designed to help discover new recipe ideas based on already owned ingredients and share reviews. It also incorporates a moderator/admin system to manage recipes, ingredients, and reviews.
 
-## Key Features
+## 💡 Key Features
 * Users can search for recipes by ingredients
 * Users can add new recipes
 * Users can view all verified recipes
@@ -15,13 +15,13 @@
 * Users can add reviews to verified recipes
 * Moderators can login and approve recipes/reviews
 
-## Technologies
+## 💻 Technologies
 This software uses the following technologies:
 * Frontend (Angular/TypeScript)
 * Backend (Java/Spring Framework/Spring Security/Maven/Tomcat)
 * Database (MySQL)
 
-## Deployment - Docker Build
+## 🐳 Deployment - Docker Build
 There are 3 Docker files to build the images for the frontend, backend and database respectively:
 * `docker/nginx.df`
 * `docker/tomcat.df`
